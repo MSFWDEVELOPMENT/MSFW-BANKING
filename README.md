@@ -1,9 +1,12 @@
 ## MSFW-BANKING
+<H1>
+  
+  [PREVIEW](https://imgur.com/a/UT3YnMC)
+  
+</H1>
 
-## PREVIEW - https://imgur.com/a/UT3YnMC
 
-## JOIN OUR DISCORD FOR UPDATES AND SUPPORT
-# DISCORD - https://discord.gg/Kz9YBjPA2U
+## JOIN OUR [DISCORD](https://discord.gg/Kz9YBjPA2U) FOR UPDATES AND SUPPORT
 
 ## ADD THIS IN qb-core/shared/items.lua
 
