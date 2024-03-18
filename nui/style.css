@@ -1,0 +1,949 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+* {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bolder;
+}
+
+body {
+    background: transparent !important;
+    margin-top: 80px;
+}
+
+#bankingContainer {
+    background: linear-gradient(to right, #161a24 25%, #11141b 25%, #11141b 75%);
+    min-width: 85%;
+    max-width: 85%;
+    min-height: 900px;
+    max-height: 900px;
+    border-radius: 20px;
+    display: none;
+}
+
+.ba{
+    color: rgb(251, 251, 251); 
+    font-style: italic;
+    -webkit-text-stroke: 3px rgb(255, 255, 255);
+    font-size: 50px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #ffffff;
+    margin-top: 25px;
+    margin-left: 90px;
+    font-weight: bold;
+}
+.ba span{
+    color: rgb(255, 0, 55); 
+    font-style: italic;
+    -webkit-text-stroke: 3px rgb(255, 0, 55);
+    font-size: 50px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgb(255, 0, 55);
+    margin-top: 25px;
+    font-weight: bold;
+}
+
+.custom-line {
+    border-width: 2px;     
+    border-color: #ffffff;
+}
+
+.cards-text {
+    color: rgb(255, 255, 255);
+}
+
+.credit-card {
+    background-color: #161a24;
+    border-radius: 15px;
+    padding: 20px;
+    width: 425px;
+    height: 240px;
+    position: relative;
+}
+
+.side-by-side-container {
+    display: flex;
+} 
+
+.bank-name{
+    color: rgb(251, 251, 251); 
+    font-style: italic;
+    -webkit-text-stroke: 3px rgb(255, 255, 255);
+    font-size: 30px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+.bank-name span{
+    color: rgb(255, 0, 55); 
+    font-style: italic;
+    -webkit-text-stroke: 3px rgb(255, 0, 55);
+    font-size: 30px;
+    letter-spacing: 3px;
+    font-weight: bold;
+}
+
+.debit{
+    margin-left: 40%;
+    color: white;
+    font-size: 25px;
+    margin-top: 6px; 
+}
+
+.visa-logo{
+    margin-left: 4px;
+}
+
+span#currentBalance1{
+    font-size: 25px;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    position: relative;
+    letter-spacing: 5px;
+}
+
+span#accountName{
+    color: #ffffff; 
+    text-transform: uppercase;
+    font-size: 16px; 
+    -webkit-text-stroke: 0.2px #ffffff;
+    position: absolute;
+    bottom: 26px;
+} 
+
+.side-by-side-container2 {
+    display: flex;
+}
+
+.card-number{
+    color: rgb(251, 251, 251);
+    -webkit-text-stroke: 0.2px #ffffff;
+    font-weight: bold;
+    margin-top: 95px;
+}
+
+.cvv{
+    color: rgb(251, 251, 251);
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-left: 180px;
+    margin-top: 95px;
+}   
+
+.credit-card2 {
+    margin-top: 20px;
+    background-color: #161a24;
+    border-radius: 0 15px 15px 0;
+    width: 80px;
+    height: 200px;
+    position: relative;
+    filter: blur(3px);
+}
+
+.visa-logo2{
+    margin-top: 15px;
+    margin-left: 20px;
+}
+
+.cvv2{
+    color: #ffffff;
+    font-size: 10px;
+    position: absolute;
+    bottom: 10px;
+    margin-left: 30px;
+}
+
+.vertical-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: -350px;
+}
+.box{
+    margin-top: 5px;
+    background-color: #161a24;
+    border-radius: 10px;
+    width: 225px;
+    height: 75px;
+    margin-left: -10%;
+
+}
+.connect-box2 {
+    width: 50px; 
+    height: 50px; 
+    background-color: rgb(26, 255, 0); 
+    border-radius: 10px;
+    position: relative;
+    top: -3px;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.connect-box3 {
+    width: 50px; 
+    height: 50px; 
+    background-color: rgb(255, 0, 55);
+    border-radius: 10px;
+    position: relative;
+    top: -3px;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.connect-box4 {
+    width: 50px; 
+    height: 50px; 
+    background-color: rgb(255, 221, 0);
+    border-radius: 10px;
+    position: relative;
+    top: -3px;
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.text2{
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    letter-spacing: 2px;
+    margin-top: -53px;
+    margin-left: 35px;
+}
+.text21{
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    letter-spacing: 2px;
+    margin-top: -53px;
+    margin-left: 13px;
+}
+.text22{
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    letter-spacing: 2px;
+    margin-top: -53px;
+    margin-left: 24px;
+}
+.text3{
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: bold;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    letter-spacing: 2px;
+    margin-top: 0px;
+    margin-left: 55px;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 85px;
+    left: 150px;
+    width: 84%;
+    height: 82%;
+    backdrop-filter: blur(2px);
+    z-index: 999;
+}
+
+.popup {
+    background: linear-gradient(to right, #161a24 25%, #11141b 25%, #11141b 75%);
+    width:40% ;
+    height: 40%;
+    display: none;
+    border-radius: 20px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    z-index: 1000;
+}
+
+.btn {
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.button5{
+    background-color: #161a24;
+    color: #ffffff;
+    margin-top: 150px;
+    margin-bottom: 15px;
+    border: #11141b;
+}
+
+.left-section {
+    float: left;
+    width: 25%;
+}
+
+.right-section {
+    float: right;
+    width: 75%;
+}
+.vertical-buttons1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 55px;
+}
+
+.ba1{
+    color: rgb(251, 251, 251); 
+    font-style: italic;
+    -webkit-text-stroke: 3px rgb(255, 255, 255);
+    font-size: 30px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #ffffff;
+    margin-top: 5px;
+    margin-left: 25px;
+    font-weight: bold;
+}
+
+.ba1 span{
+    color: rgb(255, 0, 55); 
+    font-style: italic;
+    -webkit-text-stroke: 3px rgb(255, 0, 55);
+    font-size: 25px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgb(255, 0, 55);
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.bar-container1 {
+    width: 75%; 
+    background-color: #ffffff;
+    height: 2px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 5%;
+}
+.bar1 {
+    height: 2px; 
+    width: 75%; 
+    background-color: #ffffff; 
+}
+
+.right-box {
+    margin-right: 100px;
+    margin-top: -50%;
+    background-color: #161a24;
+    border-radius: 15px;
+    width: 375px;
+    height: 300px;
+    margin-left: 35%;
+}
+
+.connect-box {
+    width: 80px;
+    height: 80px;
+    background-color: #11141b;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+span#customerName{
+    color: rgb(255, 255, 255); 
+    text-transform: uppercase;
+    font-size: 25px; 
+    margin-left: 15px;
+    position: relative;
+    top: 20px;
+}
+.accounts{
+    color: #ffffff;
+    font-size: 18px;
+    margin-left: 15px;
+    position: relative;
+    top: 12px;
+}
+.bar-container {
+    width: 90%; 
+    background-color: #ffffff;
+    height: 2px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-left: 5%;
+}
+.bar {
+    height: 2px; 
+    width: 90%; 
+    background-color: #ffffff; 
+}
+.text{
+    margin-left: 5%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    color: white;
+    font-size: 18px;
+    margin-top: 6px; 
+}
+
+#accountNumber{
+    margin-left: 5px;
+}
+#currentCashBalance1{
+    margin-left: 5px;
+}
+#currentBalance{
+    margin-left: 5px;
+}
+#currentBalance2{
+    margin-left: 348px;
+}
+#currentBalance3{
+    margin-left: 348px;
+}
+#currentCashBalance3{
+    margin-left: 400px;
+}
+#currentBalance4{
+    margin-left: 348px;
+}
+#currentCashBalance4{
+    margin-left: 400px;
+}
+#currentCashBalance{
+    margin-left: 400px;
+}
+.text1{
+    color: #ffffff;
+    margin-top: 6px;
+}
+.Transfer{
+    color: #ffffff;
+    margin-top: 50px;
+}
+.Transfer1{
+    color: #ffffff;
+    margin-top: 10px;
+}
+.Deposit{
+    color: #ffffff;
+    margin-top: 50px;
+}
+.Withdrawnal{
+    color: #ffffff;
+    margin-top: 50px;
+}
+.input-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.input-box {
+    background: #161a24;
+    padding: 10px;
+    width: 200px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+.button-box{
+    width: 60px; 
+    height: 60px; 
+    background-color: rgb(26, 255, 0); 
+    border-radius: 10px;
+    position: relative;
+    top: -5.5px;
+    margin-left: -72.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button-box1{
+    width: 60px; 
+    height: 60px; 
+    background-color: rgb(255, 0, 0); 
+    border-radius: 10px;
+    position: relative;
+    top: -5.5px;
+    margin-left: 195px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.button-box2{
+    width: 60px; 
+    height: 60px; 
+    background-color: rgb(255, 255, 0); 
+    border-radius: 10px;
+    position: relative;
+    top: 30px;
+    margin-left: -102.5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#currentCashBalance2{
+    color: rgb(255, 255, 255); 
+    margin-left: -135px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 35px;
+    margin-top: 60px;
+}
+#ATMContainer {
+    background: rgba(0, 0, 0, 0.8) !important;
+    border-radius: 20px;
+    min-height: 800px;
+    max-height: 800px;
+    display: none;
+    border: 2px solid red;
+}
+#withdrawamountdiv{
+    margin-top: 100px;
+}
+#depositammountdiv{
+    margin-top: 100px;
+}
+#depositAmount{
+    margin-left: 260px;
+    margin-top: 5px;
+    color: #ffffff;
+    font-size: 40px;
+    -webkit-text-stroke: 3.5px rgb(255, 255, 255);
+    letter-spacing: 1px;
+    width: 350px;
+    height: 80px;
+    background: #161a24;
+    border: none;
+}
+
+#depositAmount::placeholder{
+    color: white;
+}
+#withdrawAmount{
+    margin-left: -124px;
+    margin-top: 5px;
+    color: #ffffff;
+    font-size: 40px;
+    -webkit-text-stroke: 3.5px rgb(255, 255, 255);
+    letter-spacing: 1px;
+    width: 350px;
+    height: 80px;
+    background: #161a24;
+    border: none;
+}
+#withdrawAmount::placeholder{
+    color: rgb(255, 255, 255);
+}
+
+#transferAmount::placeholder{
+    color: rgb(255, 255, 255);
+}
+#transferAcctNo{
+    margin-left: -20px;
+    margin-top: 5px;
+    color: #ffffff;
+    font-size: 40px;
+    -webkit-text-stroke: 3.5px rgb(255, 255, 255);
+    letter-spacing: 1px;
+    width: 350px;
+    height: 80px;
+    background: #161a24;
+    border: none;
+}
+#transferAmount{
+    margin-left: -155px;
+    margin-top: 40px;
+    color: white;
+    font-size: 40px;
+    -webkit-text-stroke: 3.5px rgb(255, 255, 255);
+    letter-spacing: 1px;
+    width: 350px;
+    height: 80px;
+    background: #161a24;
+    border: none;
+}
+.withdrawal{
+    background-color: #161a24;
+    color: #ffffff;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: #11141b;
+
+}
+.deposit{
+    background-color: #161a24;
+    color: #ffffff;
+    margin-bottom: 15px;
+    border: #11141b;
+    
+
+}
+.transfer{
+    background-color: #161a24;
+    color: #ffffff;
+    margin-bottom: 15px;
+    border: #11141b;
+
+}
+.card-page{
+    color: #ffffff;
+    letter-spacing: 4px;
+    font-size: 50px;
+    text-align: center;
+    margin-bottom: 50px;
+    -webkit-text-stroke: 2px #ffffff;
+}
+.credit-card1 {
+    background-color: #161a24;
+    border-radius: 15px;
+    padding: 20px;
+    width: 425px;
+    height: 240px;
+    position: relative;
+}
+.credit-card4 {
+    margin-top: 20px;
+    background-color: #161a24;
+    border-radius: 0 15px 15px 0;
+    width: 300px;
+    height: 200px;
+    position: relative;
+    filter: blur(3px);
+}
+
+.debit1{
+    margin-left: 60%;
+    color: white;
+    font-size: 22.5px;
+    margin-top: 18px; 
+}
+
+.visa-logo1{
+    margin-top: 12.5px;
+}
+.cvv1{
+    color: #ffffff;
+    font-size: 10px;
+    position: absolute;
+    bottom: 10px;
+    margin-left: 250px;
+}
+
+.credit-card5 {
+    margin-top: 20px;
+    margin-left: 80px;
+    background-color: #161a24;
+    border-radius: 15px 0 0 15px;
+    width: 300px;
+    height: 200px;
+    position: relative;
+    filter: blur(3px);
+}
+
+span#accountName1{
+    color: rgb(255, 255, 255); 
+    text-transform: uppercase;
+    font-size: 15px; 
+    -webkit-text-stroke: 0.2px #ffffff;
+    position: absolute;
+    bottom: 26px;
+} 
+span#currentBalance5{
+    font-size: 25px;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    position: relative;
+    letter-spacing: 5px;
+}
+.bank-balance{
+    font-size: 25px;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    position: relative;
+    top: 30px;
+    letter-spacing: 5px;
+}
+.bank-balance5{
+    font-size: 22.5px;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    position: relative;
+    top: 30px;
+    left: 12.5px;
+    letter-spacing: 5px;
+}
+.bank-name5{
+    color: rgb(251, 251, 251); 
+    font-style: italic;
+    -webkit-text-stroke: 3px rgb(255, 255, 255);
+    font-size: 25px;
+    letter-spacing: 1.5px;
+    margin-top: 15px;
+    margin-left: 12.5px;
+    font-weight: bold;
+}
+.bank-name5 span{
+    color: rgb(255, 0, 55); 
+    font-style: italic;
+    -webkit-text-stroke: 3px rgb(255, 0, 55);
+    font-size: 25px;
+    letter-spacing: 1.5px;
+    margin-top: 15px;
+    font-weight: bold;
+}
+.card-holder1{
+    color: rgb(255, 255, 255); 
+    text-transform: uppercase;
+    font-size: 15px; 
+    position: absolute;
+    left: 12.5px;
+    bottom: 26px;
+}
+.card-number1{
+    color: rgb(251, 251, 251);
+    font-weight: bold;
+    margin-top: 82px;
+    margin-left: 12.5px;
+}
+
+.card-number2{
+    color: rgb(251, 251, 251);
+    font-weight: bold;
+    margin-top: 82px;
+}
+.card-balance6{
+    font-size: 22.5px;
+    -webkit-text-stroke: 1px rgb(255, 255, 255);
+    position: relative;
+    top: 20px;
+    letter-spacing: 5px;
+}
+.card-holder2{
+    color: rgb(255, 255, 255); 
+    text-transform: uppercase;
+    font-size: 15px; 
+    position: absolute;
+    bottom: 26px;
+}
+.create-pin{
+    margin-left: 540px;
+    color: #ffffff;
+}
+#cardPinNumber{
+    margin-left: -82.5px;
+    margin-top: 5px;
+    color: #ffffff;
+    font-size: 40px;
+    -webkit-text-stroke: 3.5px rgb(255, 255, 255);
+    letter-spacing: 42px;
+    width: 250px;
+    height: 80px;
+    background: #161a24;
+    border: none;
+}
+.connect-box5 {
+    width: 360px; 
+    height: 100px; 
+    background-color: #161a24;
+    border-radius: 10px;
+    margin-left: 375px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.statement:hover {
+    background: rgba(150, 149, 149, 0.5) !important;
+}
+
+#v-pills-tabContent,
+#v-pills-tabContent-atm {
+    overflow-y: scroll;
+    min-height: 100%;
+}
+
+#v-pills-tabContent::-webkit-scrollbar-track,
+#v-pills-tabContent-atm::-webkit-scrollbar-track {
+    background-color: transparent;
+    border: none;
+}
+
+#v-pills-tabContent::-webkit-scrollbar-thumb,
+#v-pills-tabContent-atm::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    border: none;
+}
+
+#v-pills-tabContent::-webkit-scrollbar,
+#v-pills-tabContent-atm::-webkit-scrollbar {
+    width: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background-color: transparent
+}
+
+#overtitle{
+    margin-bottom: 30px;
+}
+.title {
+    color: white;
+    margin-bottom: 15px;
+    font-weight: bolder;
+    border-left: 2px solid white;
+}
+
+.content {
+    color: white;
+    font-size: 20px;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #fff;
+    background-color: rgb(255, 0, 55);
+}
+
+#logoffbutton{
+    margin-left: 125px;
+    margin-top: 550px;
+    background-color: rgba(22,26,36,255);
+    transition: 0.5s;
+    width: 100px;
+    
+}
+#logoffbutton:hover{
+    background-color: rgba(22,26,36,255);
+}
+#quickdiv{
+    margin-top: 100px;
+}
+.nav-link{
+    transition: 0.5s;
+    
+    text-align: center;
+    padding: 16px;
+}
+.nav-link:hover{
+    background-color: #000000;
+    
+}
+.faceimg{
+    height: 50px;
+    width: 50px;
+    margin-bottom:6px;
+}
+
+.btn-primary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 27, 39);
+    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.527);
+    transition: 0.5s;
+    border-color: transparent;
+}
+
+.btn-primary:hover {
+    color: rgb(255, 255, 255);
+    background-color: #dc143c;
+    border-color: #dc143c;
+}
+
+.btn-secondary {
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 27, 39);
+    box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.527);
+    transition: 0.5s;
+    border-color: transparent;
+    
+}
+.btn-secondary:hover{
+    background-color: #28a745;
+}
+.small,
+small {
+    font-size: 95%;
+    font-weight: bolder;
+}
+
+#savingsBalance {
+    color: #28a745;
+}
+.input-container2 {
+    position: relative;
+    width: 300px; /* Adjust the width as needed */
+  }
+  
+  .input-container2 i {
+    position: absolute;
+    left: 10px; /* Adjust the left position as needed */
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: red;
+  }
+  
+  .input-container2 input {
+    padding-left: 40px; /* Adjust the padding to make room for the icon */
+    width: 100%;
+  }
+
+  .input-container1 {
+    position: relative;
+    width: 300px; /* Adjust the width as needed */
+  }
+  
+  .input-container1 i {
+    position: absolute;
+    left: -113px; /* Adjust the left position as needed */
+    top: 48%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: red;
+  }
+  
+  .input-container1 input {
+    padding-left: 40px; /* Adjust the padding to make room for the icon */
+    width: 100%;
+  }
+
+  .input-container3 {
+    position: relative;
+    width: 300px; /* Adjust the width as needed */
+  }
+  
+  .input-container3 i {
+    position: absolute;
+    left: -145px; /* Adjust the left position as needed */
+    top: 48.5%;
+    transform: translateY(-50%);
+    font-size: 30px;
+    color: red;
+  }
+  
+  .input-container3 input {
+    padding-left: 40px; /* Adjust the padding to make room for the icon */
+    width: 100%;
+  }
+
+  .input-container4 {
+    position: relative;
+    width: 300px; /* Adjust the width as needed */
+  }
+  
+  .input-container4 input {
+    padding-left: 30px; /* Adjust the padding to make room for the icon */
+    width: 100%;
+  }
+.over-text {
+    margin-top: 25px;
+    color: rgb(255, 255, 255);
+}
+.history-text {
+    margin-top: 25px;
+    margin-left: 725px;
+    color: rgb(255, 255, 255);
+}
+.transactionChart-box{
+    margin-top: -20px;
+    margin-left: 15px;
+    background: #161a24;
+    border-radius: 20px;
+    width: 775px;
+    height: 400px;
+}

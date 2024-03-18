@@ -1,0 +1,610 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Requi#DC143C meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <script src="https://kit.fontawesome.com/50c733e0e0.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/0e0a7afe9f.js" crossorigin="anonymous"></script>
+    
+    <!-- Bootstrap CSS -->
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link href="scripting/jquery-ui.css" rel="stylesheet">
+    <!--
+    <link rel="stylesheet" href="https://assets.pixelworldrp.com/fonts/pro.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/b-1.5.6/fc-3.2.5/kt-2.5.0/r-2.2.2/datatables.min.css"/>-->
+
+    <title>QBCore Banking</title>
+</head>
+
+<body>
+
+    <div class="container" id="bankingContainer">
+        <div class="row">
+            <div class="col-3">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <h1 class="ba">FL<span>EE</span>CA</h1>
+                            <hr class="custom-line">
+                        </div>
+                    </div>
+                
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical" style=" border-radius: 5px;">
+                                <a class="nav-link active m-2" id="bankingHome-tab" data-toggle="pill" href="#bankingHome" role="tab" aria-controls="bankingHome" aria-selected="true" style="color: white; background: #161a24"><i class="fas fa-home" style="margin-right: 10px;"></i>HOME</a>
+                                <a class="nav-link m-2" id="bankingActions-tab" data-toggle="pill" href="#bankingActions" role="tab" aria-controls="bankingActions" aria-selected="false" style="color: white; background: #161a24"><i class="fa-regular fa-credit-card" style="margin-right: 10px;"></i>CARDS</a>
+                                <!--<a class="nav-link m-2" id="bankingDeposit-tab" data-toggle="pill" href="#bankingDeposit" role="tab" aria-controls="bankingDeposit" aria-selected="false" style="color: white">Deposit</a>
+                                <a class="nav-link m-2" id="bankingTransfer-tab" data-toggle="pill" href="#bankingTransfer" role="tab" aria-controls="bankingTransfer" aria-selected="false" style="color: white">Transfer</a>
+                                <a class="nav-link m-1" id="bankingStatement-tab" data-toggle="pill" href="#bankingStatement" role="tab" aria-controls="bankingStatement" aria-selected="false" style= "color: white; background: #161a24">Statement</a>
+                                <a class="nav-link m-2" id="bankingSavings-tab" style="display:none; color: white;" data-toggle="pill" href="#bankingSavings" role="tab" aria-controls="bankingSavings" aria-selected="false">Savings Account</a>
+                                <a class="nav-link m-2" id="bankingActions-tab" data-toggle="pill" href="#bankingActions" role="tab" aria-controls="bankingActions" aria-selected="false" style="color: white">Account Options</a>-->
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="row mt-2">
+                        <div class="col-12">
+                            <div class="card mb-3" style="background:rgb(0, 27, 39); color: white; box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.527);">
+                                <div class="card-header">Account Information</div>
+                                <div class="card-body">
+                                    <p class="card-text" style="color: white;"><small>
+                                        Account Name: <span id="accountName"></span><br>
+                                        Account Number: <span id="accountNumber"></span><br>
+                                        Account Sort Code: <span id="accountSortCode"></span></small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="row">
+                        <div class="col-12">
+                            <button class="btn btn-block" id="logoffbutton" style="color: white; font-weight:900;"><i class="fas fa-sign-out-alt" style="margin-right: 5px;"></i>Logout</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-9">
+                <!-- Content Area -->
+                <div class="tab-content p-2 shadow-lg" id="v-pills-tabContent" style="max-height:900px; min-height:900px;">
+                    <div class="tab-pane fade show active" id="bankingHome" role="tabpanel" aria-labelledby="bankingHome-tab" style="position: relative; top: 54px;">
+                        <div class="container-fluid p-2">
+                            <div class="row">
+                                <div class="col-12" id="overtitle">
+                                    <div class="cards-text">CARDS</div>
+                                </div>
+                                      
+                            </div>
+                            <div class="row" id="successRow" style="display:none;">
+                                <div class="col-12">
+                                    <div class="alert alert-success" role="alert" id="successMessage"></div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="side-by-side-container">
+                                    <div class="credit-card">
+                                        <div class="side-by-side-container">
+                                           <div class="bank-name">FL<span>EE</span>CA</div>
+                                           <div class="debit">debit</div>
+                                           <div class="visa-logo">
+                                           <svg xmlns="http://www.w3.org/2000/svg" height="55" width="58" fill="#ff0037" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M470.1 231.3s7.6 37.2 9.3 45H446c3.3-8.9 16-43.5 16-43.5-.2 .3 3.3-9.1 5.3-14.9l2.8 13.4zM576 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h480c26.5 0 48 21.5 48 48zM152.5 331.2L215.7 176h-42.5l-39.3 106-4.3-21.5-14-71.4c-2.3-9.9-9.4-12.7-18.2-13.1H32.7l-.7 3.1c15.8 4 29.9 9.8 42.2 17.1l35.8 135h42.5zm94.4 .2L272.1 176h-40.2l-25.1 155.4h40.1zm139.9-50.8c.2-17.7-10.6-31.2-33.7-42.3-14.1-7.1-22.7-11.9-22.7-19.2 .2-6.6 7.3-13.4 23.1-13.4 13.1-.3 22.7 2.8 29.9 5.9l3.6 1.7 5.5-33.6c-7.9-3.1-20.5-6.6-36-6.6-39.7 0-67.6 21.2-67.8 51.4-.3 22.3 20 34.7 35.2 42.2 15.5 7.6 20.8 12.6 20.8 19.3-.2 10.4-12.6 15.2-24.1 15.2-16 0-24.6-2.5-37.7-8.3l-5.3-2.5-5.6 34.9c9.4 4.3 26.8 8.1 44.8 8.3 42.2 .1 69.7-20.8 70-53zM528 331.4L495.6 176h-31.1c-9.6 0-16.9 2.8-21 12.9l-59.7 142.5H426s6.9-19.2 8.4-23.3H486c1.2 5.5 4.8 23.3 4.8 23.3H528z"/></svg>
+                                           </div>
+                                        </div>
+                                        <div class="bank-balance"><span id="currentBalance1"></span></div>
+                                        <div class="card-holder"><span id="accountName"></span></div>
+                                        <div class="side-by-side-container">
+                                            <div class="card-number">1234-5678-9123-4567</div>
+                                            <div class="cvv">CVV***</div>
+                                      </div>
+                                    </div>
+                                    <div class="credit-card2">
+                                    <div class="visa-logo2">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="45" width="48" fill="#ff0037" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M470.1 231.3s7.6 37.2 9.3 45H446c3.3-8.9 16-43.5 16-43.5-.2 .3 3.3-9.1 5.3-14.9l2.8 13.4zM576 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h480c26.5 0 48 21.5 48 48zM152.5 331.2L215.7 176h-42.5l-39.3 106-4.3-21.5-14-71.4c-2.3-9.9-9.4-12.7-18.2-13.1H32.7l-.7 3.1c15.8 4 29.9 9.8 42.2 17.1l35.8 135h42.5zm94.4 .2L272.1 176h-40.2l-25.1 155.4h40.1zm139.9-50.8c.2-17.7-10.6-31.2-33.7-42.3-14.1-7.1-22.7-11.9-22.7-19.2 .2-6.6 7.3-13.4 23.1-13.4 13.1-.3 22.7 2.8 29.9 5.9l3.6 1.7 5.5-33.6c-7.9-3.1-20.5-6.6-36-6.6-39.7 0-67.6 21.2-67.8 51.4-.3 22.3 20 34.7 35.2 42.2 15.5 7.6 20.8 12.6 20.8 19.3-.2 10.4-12.6 15.2-24.1 15.2-16 0-24.6-2.5-37.7-8.3l-5.3-2.5-5.6 34.9c9.4 4.3 26.8 8.1 44.8 8.3 42.2 .1 69.7-20.8 70-53zM528 331.4L495.6 176h-31.1c-9.6 0-16.9 2.8-21 12.9l-59.7 142.5H426s6.9-19.2 8.4-23.3H486c1.2 5.5 4.8 23.3 4.8 23.3H528z"/></svg>
+                                    </div>
+                                    <div class="cvv2">CVV***</div>
+                                    </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-6">
+                                    <div class="vertical-buttons">
+                                    <button onclick="togglePopup()" ondblclick="showPage('withdrawal')" class="box">
+                                        <div class="connect-box2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M326.7 403.7c-22.1 8-45.9 12.3-70.7 12.3s-48.7-4.4-70.7-12.3c-.3-.1-.5-.2-.8-.3c-30-11-56.8-28.7-78.6-51.4C70 314.6 48 263.9 48 208C48 93.1 141.1 0 256 0S464 93.1 464 208c0 55.9-22 106.6-57.9 144c-1 1-2 2.1-3 3.1c-21.4 21.4-47.4 38.1-76.3 48.6zM256 84c-11 0-20 9-20 20v14c-7.6 1.7-15.2 4.4-22.2 8.5c-13.9 8.3-25.9 22.8-25.8 43.9c.1 20.3 12 33.1 24.7 40.7c11 6.6 24.7 10.8 35.6 14l1.7 .5c12.6 3.8 21.8 6.8 28 10.7c5.1 3.2 5.8 5.4 5.9 8.2c.1 5-1.8 8-5.9 10.5c-5 3.1-12.9 5-21.4 4.7c-11.1-.4-21.5-3.9-35.1-8.5c-2.3-.8-4.7-1.6-7.2-2.4c-10.5-3.5-21.8 2.2-25.3 12.6s2.2 21.8 12.6 25.3c1.9 .6 4 1.3 6.1 2.1l0 0 0 0c8.3 2.9 17.9 6.2 28.2 8.4V312c0 11 9 20 20 20s20-9 20-20V298.2c8-1.7 16-4.5 23.2-9c14.3-8.9 25.1-24.1 24.8-45c-.3-20.3-11.7-33.4-24.6-41.6c-11.5-7.2-25.9-11.6-37.1-15l-.7-.2c-12.8-3.9-21.9-6.7-28.3-10.5c-5.2-3.1-5.3-4.9-5.3-6.7c0-3.7 1.4-6.5 6.2-9.3c5.4-3.2 13.6-5.1 21.5-5c9.6 .1 20.2 2.2 31.2 5.2c10.7 2.8 21.6-3.5 24.5-14.2s-3.5-21.6-14.2-24.5c-6.5-1.7-13.7-3.4-21.1-4.7V104c0-11-9-20-20-20zM48 352H64c19.5 25.9 44 47.7 72.2 64H64v32H256 448V416H375.8c28.2-16.3 52.8-38.1 72.2-64h16c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V400c0-26.5 21.5-48 48-48z"/></svg>
+                                        </div>
+                                        <div class="text2">WITHDRAW</div>
+                                        <div class="text3">YOUR MONEY</div>
+                                    </button>
+                                    <button onclick="togglePopup()" ondblclick="showPage('deposit')" class="box">
+                                        <div class="connect-box3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M320 96H192L144.6 24.9C137.5 14.2 145.1 0 157.9 0H354.1c12.8 0 20.4 14.2 13.3 24.9L320 96zM192 128H320c3.8 2.5 8.1 5.3 13 8.4C389.7 172.7 512 250.9 512 416c0 53-43 96-96 96H96c-53 0-96-43-96-96C0 250.9 122.3 172.7 179 136.4l0 0 0 0c4.8-3.1 9.2-5.9 13-8.4zm84 88c0-11-9-20-20-20s-20 9-20 20v14c-7.6 1.7-15.2 4.4-22.2 8.5c-13.9 8.3-25.9 22.8-25.8 43.9c.1 20.3 12 33.1 24.7 40.7c11 6.6 24.7 10.8 35.6 14l1.7 .5c12.6 3.8 21.8 6.8 28 10.7c5.1 3.2 5.8 5.4 5.9 8.2c.1 5-1.8 8-5.9 10.5c-5 3.1-12.9 5-21.4 4.7c-11.1-.4-21.5-3.9-35.1-8.5c-2.3-.8-4.7-1.6-7.2-2.4c-10.5-3.5-21.8 2.2-25.3 12.6s2.2 21.8 12.6 25.3c1.9 .6 4 1.3 6.1 2.1l0 0 0 0c8.3 2.9 17.9 6.2 28.2 8.4V424c0 11 9 20 20 20s20-9 20-20V410.2c8-1.7 16-4.5 23.2-9c14.3-8.9 25.1-24.1 24.8-45c-.3-20.3-11.7-33.4-24.6-41.6c-11.5-7.2-25.9-11.6-37.1-15l0 0-.7-.2c-12.8-3.9-21.9-6.7-28.3-10.5c-5.2-3.1-5.3-4.9-5.3-6.7c0-3.7 1.4-6.5 6.2-9.3c5.4-3.2 13.6-5.1 21.5-5c9.6 .1 20.2 2.2 31.2 5.2c10.7 2.8 21.6-3.5 24.5-14.2s-3.5-21.6-14.2-24.5c-6.5-1.7-13.7-3.4-21.1-4.7V216z"/></svg>
+                                        </div>
+                                        <div class="text21">DEPOSIT</div>
+                                        <div class="text3">YOUR MONEY</div>
+                                    </button>
+                                    <button onclick="togglePopup()" ondblclick="showPage('transfer')" class="box">
+                                        <div class="connect-box4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" height="25" width="25" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M535 41c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l64 64c4.5 4.5 7 10.6 7 17s-2.5 12.5-7 17l-64 64c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l23-23L384 112c-13.3 0-24-10.7-24-24s10.7-24 24-24l174.1 0L535 41zM105 377l-23 23L256 400c13.3 0 24 10.7 24 24s-10.7 24-24 24L81.9 448l23 23c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L7 441c-4.5-4.5-7-10.6-7-17s2.5-12.5 7-17l64-64c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM96 64H337.9c-3.7 7.2-5.9 15.3-5.9 24c0 28.7 23.3 52 52 52l117.4 0c-4 17 .6 35.5 13.8 48.8c20.3 20.3 53.2 20.3 73.5 0L608 169.5V384c0 35.3-28.7 64-64 64H302.1c3.7-7.2 5.9-15.3 5.9-24c0-28.7-23.3-52-52-52l-117.4 0c4-17-.6-35.5-13.8-48.8c-20.3-20.3-53.2-20.3-73.5 0L32 342.5V128c0-35.3 28.7-64 64-64zm64 64H96v64c35.3 0 64-28.7 64-64zM544 320c-35.3 0-64 28.7-64 64h64V320zM320 352a96 96 0 1 0 0-192 96 96 0 1 0 0 192z"/></svg>
+                                        </div>
+                                        <div class="text22">TRANSFER</div>
+                                        <div class="text3">YOUR MONEY</div>
+                                    </button>
+                                    </div>
+                                    <div class="right-box">
+                                        <div class="side-by-side-container2">
+                                        <div class="connect-box">
+                                        <svg xmlns="http://www.w3.org/2000/svg" height="50" width="50" fill="#ff0037" viewBox="0 0 640 512"><path d="M96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3zM609.3 512H471.4c5.4-9.4 8.6-20.3 8.6-32v-8c0-60.7-27.1-115.2-69.8-151.8c2.4-.1 4.7-.2 7.1-.2h61.4C567.8 320 640 392.2 640 481.3c0 17-13.8 30.7-30.7 30.7zM432 256c-31 0-59-12.6-79.3-32.9C372.4 196.5 384 163.6 384 128c0-26.8-6.6-52.1-18.3-74.3C384.3 40.1 407.2 32 432 32c61.9 0 112 50.1 112 112s-50.1 112-112 112z"/></svg>
+                                        </div>
+                                            <div class="customer-name"><span id="customerName"></span>
+                                                <div class="accounts">1 TOTAL ACCOUNT</div>
+                                            </div>
+                                          </div>
+                                          <div class="bar-container">
+                                            <div class="bar"></div>
+                                        </div>
+                                    <div class="text">ACCOUNT :<span id="accountNumber"></span></div>
+                                    <div class="text">CASH :<span id="currentCashBalance1"></span></div>
+                                    <div class="text">BANK :<span id="currentBalance"></span></div>
+                                    </div>
+                                    </div>
+                                    <!--POPUP BOX-->
+                                    <div id="overlay" class="overlay"></div>
+                                    <div id="popup" class="popup">
+                                        <nav>
+                                        <div class="left-section">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <h1 class="ba1">FL<span>EE</span>CA</h1>
+                                                    <div class="bar-container1">
+                                                        <div class="bar1"></div>
+                                                    </div>
+                                                </div>
+                                            <div class="row">
+                                         <div class="vertical-buttons1">
+                                            <button class="withdrawal" onclick="showPage('withdrawal')">Withdrawal</button>
+                                            <button class="deposit" onclick="showPage('deposit')">Deposit</button>
+                                            <button class="transfer" onclick="showPage('transfer')">Transfer</button>
+                                            <button class="button5" onclick="togglePopup()" style="color: white; font-weight:900;"><i class="fas fa-sign-out-alt" style="margin-right: 5px;"></i>EXIT</button>
+                                         </div>
+                                            </div>
+                                         </nav>
+                                         <section>
+                                        
+
+                                            <div id="withdrawalPage" style="display: none;">
+                                        
+                                                <!-- Withdrawal page content goes here -->
+                                                <div>
+                                                    <div class="text1"><i class="fa-solid fa-wallet" style="margin-right: 5px;"></i>CASH :<span id="currentCashBalance"></span></div>
+                                                    <div class="text1"><i class="fa-solid fa-building-columns" style="margin-right: 5px;"></i>BANK MONEY :<span id="currentBalance2"></span></div>
+                                                </div>
+                                                <div class="Withdrawnal">WITHDRAWAL AMOUNT</div>
+                                                <div class="input-container">
+                                                    <div class="side-by-side-container">
+                                                    <div class="col-9">
+                                                        <div class="input-container1">
+                                                            <i class="fa-solid fa-dollar-sign"></i>
+                                                            <input type="number" placeholder="0" class="form-control" id="withdrawAmount" name="withdrawAmount">
+                                                        </div>
+                                                    </div>
+                                                        <div class="row" style="position: relative; top: 20px;">
+                                                            <div class="col-12 text-center">
+                                                                <button onclick="togglePopup()" class="button-box" id="initiateWithdraw"><div><svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M326.7 403.7c-22.1 8-45.9 12.3-70.7 12.3s-48.7-4.4-70.7-12.3c-.3-.1-.5-.2-.8-.3c-30-11-56.8-28.7-78.6-51.4C70 314.6 48 263.9 48 208C48 93.1 141.1 0 256 0S464 93.1 464 208c0 55.9-22 106.6-57.9 144c-1 1-2 2.1-3 3.1c-21.4 21.4-47.4 38.1-76.3 48.6zM256 84c-11 0-20 9-20 20v14c-7.6 1.7-15.2 4.4-22.2 8.5c-13.9 8.3-25.9 22.8-25.8 43.9c.1 20.3 12 33.1 24.7 40.7c11 6.6 24.7 10.8 35.6 14l1.7 .5c12.6 3.8 21.8 6.8 28 10.7c5.1 3.2 5.8 5.4 5.9 8.2c.1 5-1.8 8-5.9 10.5c-5 3.1-12.9 5-21.4 4.7c-11.1-.4-21.5-3.9-35.1-8.5c-2.3-.8-4.7-1.6-7.2-2.4c-10.5-3.5-21.8 2.2-25.3 12.6s2.2 21.8 12.6 25.3c1.9 .6 4 1.3 6.1 2.1l0 0 0 0c8.3 2.9 17.9 6.2 28.2 8.4V312c0 11 9 20 20 20s20-9 20-20V298.2c8-1.7 16-4.5 23.2-9c14.3-8.9 25.1-24.1 24.8-45c-.3-20.3-11.7-33.4-24.6-41.6c-11.5-7.2-25.9-11.6-37.1-15l-.7-.2c-12.8-3.9-21.9-6.7-28.3-10.5c-5.2-3.1-5.3-4.9-5.3-6.7c0-3.7 1.4-6.5 6.2-9.3c5.4-3.2 13.6-5.1 21.5-5c9.6 .1 20.2 2.2 31.2 5.2c10.7 2.8 21.6-3.5 24.5-14.2s-3.5-21.6-14.2-24.5c-6.5-1.7-13.7-3.4-21.1-4.7V104c0-11-9-20-20-20zM48 352H64c19.5 25.9 44 47.7 72.2 64H64v32H256 448V416H375.8c28.2-16.3 52.8-38.1 72.2-64h16c26.5 0 48 21.5 48 48v64c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V400c0-26.5 21.5-48 48-48z"/></svg></div></button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        
+                                            </div>
+                                        
+                                            <div id="depositPage" style="display: none;">
+                                        
+                                                <!-- Deposit page content goes here -->
+                                                <div>
+                                                    <div class="text1"><i class="fa-solid fa-wallet" style="margin-right: 5px;"></i>CASH :<span id="currentCashBalance3"></span></div>
+                                                    <div class="text1"><i class="fa-solid fa-building-columns" style="margin-right: 5px;"></i>BANK MONEY :<span id="currentBalance3"></span></div>
+                                                </div>
+                                                <div class="Deposit">DEPOSIT AMOUNT</div>
+                                                <div class="input-container2">
+                                                    <div class="side-by-side-container">
+                                                <div class="col-9">
+                                                    <div class="input-container">
+                                                        <i class="fa-solid fa-dollar-sign"></i>
+                                                        <input type="number" placeholder="0" class="form-control" id="depositAmount" name="depositAmount">
+                                                    </div>
+                                                </div>
+                                                    <div class="row" style="position: relative; top: 20px;">
+                                                        <div class="col-12 text-center"><button onclick="togglePopup()" class="button-box1" id="initiateDeposit"><div>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M320 96H192L144.6 24.9C137.5 14.2 145.1 0 157.9 0H354.1c12.8 0 20.4 14.2 13.3 24.9L320 96zM192 128H320c3.8 2.5 8.1 5.3 13 8.4C389.7 172.7 512 250.9 512 416c0 53-43 96-96 96H96c-53 0-96-43-96-96C0 250.9 122.3 172.7 179 136.4l0 0 0 0c4.8-3.1 9.2-5.9 13-8.4zm84 88c0-11-9-20-20-20s-20 9-20 20v14c-7.6 1.7-15.2 4.4-22.2 8.5c-13.9 8.3-25.9 22.8-25.8 43.9c.1 20.3 12 33.1 24.7 40.7c11 6.6 24.7 10.8 35.6 14l1.7 .5c12.6 3.8 21.8 6.8 28 10.7c5.1 3.2 5.8 5.4 5.9 8.2c.1 5-1.8 8-5.9 10.5c-5 3.1-12.9 5-21.4 4.7c-11.1-.4-21.5-3.9-35.1-8.5c-2.3-.8-4.7-1.6-7.2-2.4c-10.5-3.5-21.8 2.2-25.3 12.6s2.2 21.8 12.6 25.3c1.9 .6 4 1.3 6.1 2.1l0 0 0 0c8.3 2.9 17.9 6.2 28.2 8.4V424c0 11 9 20 20 20s20-9 20-20V410.2c8-1.7 16-4.5 23.2-9c14.3-8.9 25.1-24.1 24.8-45c-.3-20.3-11.7-33.4-24.6-41.6c-11.5-7.2-25.9-11.6-37.1-15l0 0-.7-.2c-12.8-3.9-21.9-6.7-28.3-10.5c-5.2-3.1-5.3-4.9-5.3-6.7c0-3.7 1.4-6.5 6.2-9.3c5.4-3.2 13.6-5.1 21.5-5c9.6 .1 20.2 2.2 31.2 5.2c10.7 2.8 21.6-3.5 24.5-14.2s-3.5-21.6-14.2-24.5c-6.5-1.7-13.7-3.4-21.1-4.7V216z"/></svg>
+                                                        </div></button></div>
+                                                    </div>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        
+                                            <div id="transferPage" style="display: none;">
+                                        
+                                                <!-- Transfer page content goes here -->
+                                                <div>
+                                                    <div class="text1"><i class="fa-solid fa-wallet" style="margin-right: 5px;"></i>CASH :<span id="currentCashBalance4"></span></div>
+                                                    <div class="text1"><i class="fa-solid fa-building-columns" style="margin-right: 5px;"></i>BANK MONEY :<span id="currentBalance4"></span></div>
+                                                </div>
+                                                <div class="Transfer">ACCOUNT NUMBER (PLAYER ID)</div>
+                                                <div class="input-container">
+                                                <div class="row m-1">
+                                                    <div class="col-9">
+                                                        <input type="number" class="form-control" id="transferAcctNo" name="transferAcctNo">
+                                                    </div>
+                                                <div class="Transfer1">TRANSFER AMOUNT</div>
+                                                <div class="side-by-side-container">
+                                                <div class="col-9">
+                                                    <div class="input-container3">
+                                                        <i class="fa-solid fa-dollar-sign"></i>
+                                                        <input type="number" placeholder="0" id="transferAmount" name="transferAmount" class="form-control">
+                                                    </div>
+                                                </div>  
+                                                <div class="row">
+                                                    <div class="col-12 text-center" style="position: relative; top: 20px;">
+                                                        <button onclick="togglePopup()" class="button-box2" id="initiateTransfer"><div>
+                                                                <svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M535 41c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l64 64c4.5 4.5 7 10.6 7 17s-2.5 12.5-7 17l-64 64c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l23-23L384 112c-13.3 0-24-10.7-24-24s10.7-24 24-24l174.1 0L535 41zM105 377l-23 23L256 400c13.3 0 24 10.7 24 24s-10.7 24-24 24L81.9 448l23 23c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0L7 441c-4.5-4.5-7-10.6-7-17s2.5-12.5 7-17l64-64c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9zM96 64H337.9c-3.7 7.2-5.9 15.3-5.9 24c0 28.7 23.3 52 52 52l117.4 0c-4 17 .6 35.5 13.8 48.8c20.3 20.3 53.2 20.3 73.5 0L608 169.5V384c0 35.3-28.7 64-64 64H302.1c3.7-7.2 5.9-15.3 5.9-24c0-28.7-23.3-52-52-52l-117.4 0c4-17-.6-35.5-13.8-48.8c-20.3-20.3-53.2-20.3-73.5 0L32 342.5V128c0-35.3 28.7-64 64-64zm64 64H96v64c35.3 0 64-28.7 64-64zM544 320c-35.3 0-64 28.7-64 64h64V320zM320 352a96 96 0 1 0 0-192 96 96 0 1 0 0 192z"/></svg>
+                                                            </div></button>
+                                                    </div>
+                                                </div>
+                                                  </div>
+                                                  </div>
+                                                </div>
+                                        
+                                            </div>
+                                         </section>
+                                         </div>
+
+      
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<div class="col-12" id="overtitle">
+    <div class="side-by-side-container">
+     <div class="over-text">OVERVIEW</div>
+     <div class="history-text">HISTORY</div>
+    </div>
+</div>
+<div class="side-by-side-container">
+<div class="transactionChart-box">
+<canvas id="transactionChart" width="800" height="400"></canvas>   
+</div> 
+<div class="vertical-buttons">
+<div class="connect-box5"></div>   
+<div class="connect-box5"></div>  
+<div class="connect-box5"></div> 
+</div>           
+</div>      
+
+
+
+
+<!--</div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="bankingWithdraw" role="tabpanel" aria-labelledby="bankingWithdraw-tab">
+                        <div class="container-fluid p-2" style="position: relative; top: 54px;">
+                            <div class="row" style="position: relative; top: 20px;">-->
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="tab-pane fade" id="bankingTransfer" role="tabpanel" aria-labelledby="bankingTransfer-tab">
+
+                    </div>-->
+                    <div class="tab-pane fade" id="bankingStatement" role="tabpanel" aria-labelledby="bankingStatement-tab">
+                        <div class="container-fluid p-2">
+                            <div class="row">
+                                <div class="col-12 title">
+                                    <h3>Current Account Statement</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="card bg-light mb-3">
+                                        <div class="card-body">
+                                            <table id="currentStatement" class="display" style="width:100%">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Date</th>
+                                                        <th>Description</th>
+                                                        <th class="text-center">Withdrawn</th>
+                                                        <th class="text-center">Deposit</th>
+                                                        <th class="text-center">New Balance</th>
+                                                    </tr>
+                                                </thead>
+                                                <div id="currentStatementContents"></div>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="bankingSavings" role="tabpanel" aria-labelledby="bankingSavings-tab">
+                        <div class="container-fluid p-2" style="position: relative; top: 54px;">
+                            <div class="row">
+                                <div class="col-12 title">
+                                    <h4 style="font-size: 35px;">Savings Account</h4>
+                                </div>
+                            </div>
+                            <div class="row" style="position: relative; top: 20px;">
+                                <div class="col-4" style="color: #00af17">
+                                    <div class="card mb-3" style="background:rgb(0, 27, 39); color: white; box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.527); min-height:150px;">
+                                        <div class="card-header"><i class="fad fa-fw fa-money-bill-wave"></i> Savings Account Balance:</div>
+                                        <div class="card-body">
+                                            <h5 class="card-title">&#36;&nbsp;<span id="savingsBalance"></span></h5>
+                                            <p class="card-text" style="font-size: 10px; color: white;">This is currently how much you have saved in your savings account</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-8">
+                                    <div class="card mb-3" style="background:rgb(0, 27, 39); color: white; box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.527);">
+                                        <div class="card-header">Savings Withdraw & Deposits</div>
+                                        <div class="card-body">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-4"><label for="savingsAction"><small>Action</small></label>
+                                                        <select name="savingsAction" id="savingsAction" class="form-control" style="font-size: 13px;">
+                                                        <option selected disabled value="def">Please Select</option>
+                                                        <option value="deposit">Deposit</option>
+                                                        <option value="withdraw">Withdrawal</option>
+                                                    </select>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <label for="savingsTAmount"><small>Amount</small></label>
+                                                        <input type="number" id="savingsTAmount" name="savingsTAmount" class="form-control" placeholder="$" style="font-size: 13px;">
+                                                    </div>
+                                                    <div class="col-4 my-auto">
+                                                        <button class="btn btn-block" id="makeSavingsTransfer" style="background-color: #28a745; font-size: 12px; color: white">Complete Request</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="position: relative; top: 60px">
+                            <div class="card mb-3" style="background:rgb(0, 27, 39); color: white; box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.527);">
+                                <div class="card-header">Savings Account Statement</div>
+                                <div class="card-body">
+                                    <table id="savingsStatement" class="display" style="width:100%">
+                                        <thead>
+                                            <tr style="font-size: 14px; color: white;">
+                                                <th>Date</th>
+                                                <th>Description</th>
+                                                <th class="text-center">Withdrawn</th>
+                                                <th class="text-center">Deposit</th>
+                                                <th class="text-center">New Balance</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="savingsStatementContents" style="font-size: 14px;">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="bankingActions" role="tabpanel" aria-labelledby="bankingActions-tab" style="position: relative; top: 54px;">
+                    <div class="container-fluid p-2" style="position: relative; top: 40px;">
+                    <div class="card-page">YOUR CARDS</div>
+                        <div class="side-by-side-container">
+                            <div class="credit-card5">
+                                <div class="bank-name5">FL<span>EE</span>CA</div>
+                                <div class="bank-balance5">$1,486,324</div>
+                                <div class="card-holder1">NYTRO LEGEND</div>
+                                <div class="card-number1">1234-5678-9123-4567</div>
+                            </div>
+                            <div class="credit-card1">
+                                <div class="side-by-side-container">
+                                   <div class="bank-name">FL<span>EE</span>CA</div>
+                                   <div class="debit">debit</div>
+                                   <div class="visa-logo">
+                                   <svg xmlns="http://www.w3.org/2000/svg" height="55" width="58" fill="#ff0037" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M470.1 231.3s7.6 37.2 9.3 45H446c3.3-8.9 16-43.5 16-43.5-.2 .3 3.3-9.1 5.3-14.9l2.8 13.4zM576 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h480c26.5 0 48 21.5 48 48zM152.5 331.2L215.7 176h-42.5l-39.3 106-4.3-21.5-14-71.4c-2.3-9.9-9.4-12.7-18.2-13.1H32.7l-.7 3.1c15.8 4 29.9 9.8 42.2 17.1l35.8 135h42.5zm94.4 .2L272.1 176h-40.2l-25.1 155.4h40.1zm139.9-50.8c.2-17.7-10.6-31.2-33.7-42.3-14.1-7.1-22.7-11.9-22.7-19.2 .2-6.6 7.3-13.4 23.1-13.4 13.1-.3 22.7 2.8 29.9 5.9l3.6 1.7 5.5-33.6c-7.9-3.1-20.5-6.6-36-6.6-39.7 0-67.6 21.2-67.8 51.4-.3 22.3 20 34.7 35.2 42.2 15.5 7.6 20.8 12.6 20.8 19.3-.2 10.4-12.6 15.2-24.1 15.2-16 0-24.6-2.5-37.7-8.3l-5.3-2.5-5.6 34.9c9.4 4.3 26.8 8.1 44.8 8.3 42.2 .1 69.7-20.8 70-53zM528 331.4L495.6 176h-31.1c-9.6 0-16.9 2.8-21 12.9l-59.7 142.5H426s6.9-19.2 8.4-23.3H486c1.2 5.5 4.8 23.3 4.8 23.3H528z"/></svg>
+                                   </div>
+                                </div>
+                                <div class="bank-balance"><span id="currentBalance5"></span></div>
+                                <div class="card-holder"><span id="accountName1"></span></div>
+                                <div class="side-by-side-container">
+                                    <div class="card-number">1234-5678-9123-4567</div>
+                                    <div class="cvv">CVV***</div>
+                              </div>
+                            </div>
+                            <div class="credit-card4">
+                            <div class="side-by-side-container">
+                                <div class="debit1">debit</div>
+                                <div class="visa-logo1">
+                                <svg xmlns="http://www.w3.org/2000/svg" height="45" width="48" fill="#ff0037" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M470.1 231.3s7.6 37.2 9.3 45H446c3.3-8.9 16-43.5 16-43.5-.2 .3 3.3-9.1 5.3-14.9l2.8 13.4zM576 80v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V80c0-26.5 21.5-48 48-48h480c26.5 0 48 21.5 48 48zM152.5 331.2L215.7 176h-42.5l-39.3 106-4.3-21.5-14-71.4c-2.3-9.9-9.4-12.7-18.2-13.1H32.7l-.7 3.1c15.8 4 29.9 9.8 42.2 17.1l35.8 135h42.5zm94.4 .2L272.1 176h-40.2l-25.1 155.4h40.1zm139.9-50.8c.2-17.7-10.6-31.2-33.7-42.3-14.1-7.1-22.7-11.9-22.7-19.2 .2-6.6 7.3-13.4 23.1-13.4 13.1-.3 22.7 2.8 29.9 5.9l3.6 1.7 5.5-33.6c-7.9-3.1-20.5-6.6-36-6.6-39.7 0-67.6 21.2-67.8 51.4-.3 22.3 20 34.7 35.2 42.2 15.5 7.6 20.8 12.6 20.8 19.3-.2 10.4-12.6 15.2-24.1 15.2-16 0-24.6-2.5-37.7-8.3l-5.3-2.5-5.6 34.9c9.4 4.3 26.8 8.1 44.8 8.3 42.2 .1 69.7-20.8 70-53zM528 331.4L495.6 176h-31.1c-9.6 0-16.9 2.8-21 12.9l-59.7 142.5H426s6.9-19.2 8.4-23.3H486c1.2 5.5 4.8 23.3 4.8 23.3H528z"/></svg>
+                                </div>
+                            </div>
+                            <div class="card-balance6">6,324</div>
+                            <div class="card-holder2">EGEND</div>
+                            <div class="card-number2">78-9123-4567</div>
+                                <div class="cvv1">CVV***</div>
+                            </div>
+                         </div>
+                        
+                    
+                        
+                    
+                        <!--<div class="container-fluid p-2">
+                            <div class="row">
+                                <div class="col-12 title">
+                                    <h3 style="font-size: 35px;">Account Options</h3>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 content" style="font-size: 12px;">
+                                    <p>From within the Account options section you are able to manage every aspect of your banking experience with QBCore Banks, from ordering a new debit card, changing your pins, and even create a savings account.</p>
+                                </div>
+                            </div>-->
+                   
+                            <div class="row">
+                                <div class="col-12">
+                                        <div class="card-body">
+                                            <div class="container-fluid" id="cardInactive" style="display:none;">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <button class="btn btn-block" id="orderCardBtn" style="background: rgb(255, 0, 55); -webkit-text-stroke: 1px white; margin-left: 450px; width:200PX; color: white;">Order Debit Card</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="container-fluid" id="cardOrdering" style="display:none;">
+                                                <div class="row" id="pinCreatorError" style="display:none;">
+                                                    <div class="col-12">
+                                                        <div class="alert alert-warning" role="alert" id="pinCreatorErrorMsg">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="create-pin">CREATE PIN
+                                                        <input type="password" maxlength="4" class="form-control text-center" id="cardPinNumber" name="cardPinNumber">
+                                                    </div>
+                                                </div>
+                                                <div class="row mt-2">
+                                                    <div class="col-12 text-center ">
+                                                    <button class="btn btn-info" id="processCard" style="background: rgb(255, 0, 55); margin-left: 40px; -webkit-text-stroke: 1px white; width:200PX; color: white;">Order Card</button></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                
+
+                                            <div class="container-fluid" id="cardDetails" style="display:none;">
+                                                <div class="row">
+
+                                                    <div class="col-4">
+                                                        <div class="card text-white bg-info mb-3" id="debitCardPin" style="min-height:230px">
+                                                            <div class="card-header">Change Pin</div>
+                                                            <div class="card-body">Your pin is currently set.</div>
+                                                            <div class="card-footer">
+                                                                <button class="btn btn-primary btn-block" id="changePin">Change PIN</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-4">
+                                                        <div class="card text-white bg-dark mb-3" id="requestNewCard1" style="min-height:230px; display:block;">
+                                                            <div class="card-header">Request New Card</div>
+                                                            <div class="card-body">Current Active Card<br>
+                                                                <small><span id="cardType">Visa</span><br>
+                                                                        <span id="cardNumberShow">************3455</span></small>
+                                                            </div>
+                                                            <div class="card-footer">
+                                                                <button class="btn btn-primary btn-block" id="makeNewCardRequestBtn1">Make Request</button>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card text-white bg-dark mb-3" id="requestNewCard2" style="min-height:230px; display:none;">
+                                                            <div class="card-header">Confirm Request</div>
+                                                            <div class="card-body"><small>By making this request your old card will be blocked.</small>
+                                                        </div>
+                                                        <div class="card-footer text-center">
+                                                                <button class="btn btn-success btn-sm" id="confirmCardRequest">Confirm</button> <button class="btn btn-danger btn-sm" id="cancelNewCardReq">Cancel</button>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="card text-white bg-success mb-3" id="requestNewCard3" style="min-height:230px; display:none;">
+                                                            <div class="card-header">Request Confirmed</div>
+                                                            <div class="card-body"><small>You have received a new card, and your previous one has been blocked.</small>
+
+                                                            </div>
+                                                            <div class="card-footer text-center">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-4">
+                                                        <div class="card text-white bg-success mb-3" id="debitCardStatus" style="min-height:230px">
+                                                            <div class="card-header">Card Unlocked</div>
+                                                            <div class="card-body">Your card is currently active.</div>
+                                                            <div class="card-footer">
+                                                                <button class="btn btn-primary btn-block" id="lockCard">Lock/Block Card</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row" id="createNewPin" style="display:none;">
+                                                    <div class="col-12">
+                                                        <div class="card bg-light mb-3">
+                                                            <div class="card-header">Create a New Pin</div>
+                                                            <div class="card-body">
+                                                                <div class="container-fluid">
+                                                                    <div class="row" id="newPinReqMsgDiv" style="display:none;">
+                                                                        <div class="col-12">
+                                                                            <div class="alert alert-danger" role="alert" id="newPinReqMsg">
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <div class="col-3 my-aut"><label for="newPinNumber"><small>New Pin Number</small></label></div>
+                                                                        <div class="col-9"><input type="password" class="form-control" id="newPinNumber" name="newPinNumber"></div>
+                                                                    </div>
+                                                                    <div class="row mt-2">
+                                                                        <div class="col-12 text-center"><button class="btn btn-success" id="updateNewPin">Update Pin</button></div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                  </div>
+            </div> 
+                    
+                            <!--<div class="row" id="savingAccountCreator" style="display:none;">
+                                <div class="col-12">
+                                    <div class="card mb-3" style="background:rgb(0, 27, 39); color: white; box-shadow: 0px 0px 7px 2px rgba(0, 0, 0, 0.527);">
+                                        <div class="card-header">Savings Account Management</div>
+                                        <div class="card-body">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-12 content" style="font-size: 16px;">
+                                                        <p>You have not yet opened a savings account with QBCore Banks, click the button below to open a personal savings account, with a seperate account number and sort code.</p>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <button class="btn btn-block mt-2" style="background:#28a745; color: white;" id="openSavings">Open Savings Account</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="card-footer">
+                                            <p class="card-text"><small>This sections allows you to eaily manage your savings account.</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="scripting/external/jquery/jquery.js"></script>
+    <script src="scripting/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/b-1.5.6/fc-3.2.5/kt-2.5.0/r-2.2.2/datatables.min.js"></script>
+    <script src="msfw-banking.js"></script>
+</body>
+
+</html>
