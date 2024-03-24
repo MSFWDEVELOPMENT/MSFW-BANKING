@@ -39,6 +39,6 @@ files {
     'nui/msfw-banking.js',
 }
 
-dependency 'msfw-atms'
+dependencies 'msfw-atms'
 
 lua54 'yes'
